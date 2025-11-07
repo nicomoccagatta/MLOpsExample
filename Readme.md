@@ -8,7 +8,7 @@ Actions
 
 El propósito de este repositorio es realizar pruebas simples de integración continua (CI) usando **GitHub Actions**. Actualmente, el flujo de trabajo básico está configurado para ejecutar un script de Python en cada push a la rama `main`.
 
-
+```sh
 python -m prueba .venv   
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ./prueba/Scripts/activate  
@@ -18,7 +18,7 @@ git add .
 git status
 git commit -m "probar actions"
 git push origin main
-
+```
 
 EJECUTAR MLFlow
 ---------------
@@ -27,6 +27,8 @@ MLflow escuchando en http://localhost:5050/
 
 2. Para Docker
 Crear dockerfile con:
+
+```docker
 ###################
 FROM python:3.10
 
@@ -36,16 +38,18 @@ EXPOSE 5050
 
 CMD ["mlflow", "server", "--backend-store-uri", "sqlite:///mlflow.db", "--default-artifact-root", "/mlruns", "--host", "0.0.0.0", "--port", "5000"]
 ###############
+```
+
 Y ejecutar
+
+### Docker:
+```sh
     docker build -t mlflow-server .      
     docker run -p 5050:5050 mlflow-server .
+```
 
-3. local: mlflow ui
+### Local: 
 
-
-
-
-
-
-
-
+```sh
+mlflow ui
+```
