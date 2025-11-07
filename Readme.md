@@ -22,8 +22,8 @@ git push origin main
 
 EJECUTAR MLFlow
 ---------------
-1. mlflow server --backend-store-uri sqlite:///mlflow.db --port 5000
-MLflow escuchando en http://localhost:5000/
+1. mlflow server --backend-store-uri sqlite:///mlflow.db --port 5050
+MLflow escuchando en http://localhost:5050/
 
 2. Para Docker
 Crear dockerfile con:
@@ -32,13 +32,13 @@ FROM python:3.10
 
 RUN pip install mlflow
 
-EXPOSE 5000
+EXPOSE 5050
 
 CMD ["mlflow", "server", "--backend-store-uri", "sqlite:///mlflow.db", "--default-artifact-root", "/mlruns", "--host", "0.0.0.0", "--port", "5000"]
 ###############
 Y ejecutar
     docker build -t mlflow-server .      
-    docker run -p 5000:5000 mlflow-server .
+    docker run -p 5050:5050 mlflow-server .
 
 3. local: mlflow ui
 

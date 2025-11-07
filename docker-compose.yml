@@ -3,9 +3,9 @@ services:
   mlflow:
     image: ghcr.io/mlflow/mlflow:latest
     ports:
-      - "5000:5000"
+      - "5050:5050"
     environment:
-      - MLFLOW_TRACKING_URI=http://0.0.0.0:5000
+      - MLFLOW_TRACKING_URI=http://0.0.0.0:5050
       - MLFLOW_BACKEND_STORE_URI=mlruns
       - MLFLOW_DEFAULT_ARTIFACT_ROOT=mlruns
     volumes:

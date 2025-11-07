@@ -75,7 +75,7 @@ def abrir_mlflow_ui():
     thread = threading.Thread(target=iniciar_mlflow)
     thread.start()
     time.sleep(2)
-    webbrowser.open('http://localhost:5000')
+    webbrowser.open('http://localhost:5050')
 
 
 if __name__ == "__main__":
